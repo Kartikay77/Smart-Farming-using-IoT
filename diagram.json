@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "author": "Kartikay",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -10, "left": -130, "attrs": {} },
+    { "type": "wokwi-dht11", "id": "dht1", "top": -140, "left": 20, "attrs": { "temperature": "28", "humidity": "55" } },
+    { "type": "wokwi-potentiometer", "id": "soil", "top": 10, "left": 160, "attrs": { "value": "2000" } },
+    { "type": "wokwi-buzzer", "id": "buzz", "top": 70, "left": 30 }
+  ],
+  "connections": [
+    ["esp:4", "dht1:DATA", "green", ["h0"]],
+    ["dht1:VCC", "esp:3V3", "red", ["v0"]],
+    ["dht1:GND", "esp:GND.1", "black", ["v0"]],
+    ["soil:SIG", "esp:34", "blue", ["h0"]],
+    ["soil:VCC", "esp:3V3", "red", ["v0"]],
+    ["soil:GND", "esp:GND.2", "black", ["v0"]],
+    ["buzz:1", "esp:27", "orange", ["h0"]],
+    ["buzz:2", "esp:GND.3", "black", ["v0"]]
+  ]
+}
